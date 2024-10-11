@@ -1,0 +1,57 @@
+/*CREATE TABLE Curso(
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	nome VARCHAR(40) NOT NULL,
+	codigo INT UNIQUE NOT NULL, 
+	semestres INT NOT NULL,
+	cargaHoraria INT NOT NULL
+);*/
+
+/*CREATE TABLE Professor(
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	cpf VARCHAR(11) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	codigo INT UNIQUE NOT NULL,
+	formacao VARCHAR(30) NOT NULL,
+	area VARCHAR(30) NOT NULL, 
+	cargaHoraria INT NOT NULL
+);
+
+CREATE TABLE Aluno(
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	dataDeNascimento DATE NOT NULL,
+	cpf VARCHAR(11) NOT NULL,
+	matricula INT UNIQUE NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	cidade VARCHAR(30) NOT NULL,
+	curso INT,
+	semestre INT NOT NULL,
+	CONSTRAINT AlunoCurso FOREIGN KEY(curso) REFERENCES Curso(id)
+);
+
+CREATE TABLE Cadeira(
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	codigo INT UNIQUE NOT NULL,
+	preRequisito VARCHAR(30) NOT NULL, 
+	semestre INT NOT NULL,
+	curso INT,
+	CONSTRAINT CadeiraCurso FOREIGN KEY(curso) REFERENCES Curso(id)
+);
+
+CREATE TABLE Turma(
+	id INT IDENTITY(1,1) PRIMARY KEY, 
+	nome VARCHAR(100) NOT NULL, 
+	codigo INT UNIQUE NOT NULL, 
+	capacidade INT NOT NULL, 
+	horario VARCHAR(10) NOT NULL,
+	dia VARCHAR(50) NOT NULL,
+	curso INT,
+	professorId INT,
+	cadeira INT,
+	CONSTRAINT TurmaCurso FOREIGN KEY(curso) REFERENCES Curso(id),
+    CONSTRAINT TurmaProfessor FOREIGN KEY (professorId) REFERENCES Professor(id),
+	CONSTRAINT TurmaCadeira FOREIGN KEY(cadeira) REFERENCES Cadeira(id),
+    CONSTRAINT UQTurmaProfessor UNIQUE (professorId) 
+);*/
