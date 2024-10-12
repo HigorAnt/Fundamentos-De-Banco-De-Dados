@@ -1,12 +1,14 @@
-/*CREATE TABLE Curso(
+/*CRIA플O DA TABELA CURSO*/
+CREATE TABLE Curso(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	nome VARCHAR(40) NOT NULL,
 	codigo INT UNIQUE NOT NULL, 
 	semestres INT NOT NULL,
 	cargaHoraria INT NOT NULL
-);*/
+);
 
-/*CREATE TABLE Professor(
+/*CRIA플O DA TABELA PROFESSOR*/
+CREATE TABLE Professor(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	nome VARCHAR(100) NOT NULL,
 	cpf VARCHAR(11) NOT NULL,
@@ -17,12 +19,13 @@
 	cargaHoraria INT NOT NULL
 );
 
+/*CRIA플O DA TABELA ALUNO*/
 CREATE TABLE Aluno(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	nome VARCHAR(100) NOT NULL,
 	dataDeNascimento DATE NOT NULL,
 	cpf VARCHAR(11) NOT NULL,
-	matricula INT UNIQUE NOT NULL,
+	matricula VARCHAR(6) UNIQUE NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	cidade VARCHAR(30) NOT NULL,
 	curso INT,
@@ -30,28 +33,34 @@ CREATE TABLE Aluno(
 	CONSTRAINT AlunoCurso FOREIGN KEY(curso) REFERENCES Curso(id)
 );
 
+/*CRIA플O DA TABELA CADEIRA*/
 CREATE TABLE Cadeira(
 	id INT IDENTITY(1,1) PRIMARY KEY,
-	nome VARCHAR(100) NOT NULL,
+	nome VARCHAR(60) NOT NULL,
 	codigo INT UNIQUE NOT NULL,
-	preRequisito VARCHAR(30) NOT NULL, 
+	preRequisito VARCHAR(60) NOT NULL, 
 	semestre INT NOT NULL,
-	curso INT,
-	CONSTRAINT CadeiraCurso FOREIGN KEY(curso) REFERENCES Curso(id)
 );
 
+/*CRIA플O DA TABELA QUE RELACIONA CADEIRA COM SEUS RESPECTIVOS CURSOS*/
+CREATE TABLE CursoCadeira(
+	id INT IDENTITY(1,1),
+	curso INT,
+	cadeira INT
+	CONSTRAINT cursoC FOREIGN KEY(cadeira) REFERENCES Cadeira(id),
+	CONSTRAINT cadeiraC FOREIGN KEY(curso) REFERENCES Curso(id)
+);
+
+/*CRIA플O DA TABELA TURMA*/
 CREATE TABLE Turma(
 	id INT IDENTITY(1,1) PRIMARY KEY, 
 	nome VARCHAR(100) NOT NULL, 
 	codigo INT UNIQUE NOT NULL, 
 	capacidade INT NOT NULL, 
-	horario VARCHAR(10) NOT NULL,
+	horario VARCHAR(11) NOT NULL,
 	dia VARCHAR(50) NOT NULL,
-	curso INT,
-	professorId INT,
+	professor INT,
 	cadeira INT,
-	CONSTRAINT TurmaCurso FOREIGN KEY(curso) REFERENCES Curso(id),
-    CONSTRAINT TurmaProfessor FOREIGN KEY (professorId) REFERENCES Professor(id),
+    CONSTRAINT TurmaProfessor FOREIGN KEY (professor) REFERENCES Professor(id),
 	CONSTRAINT TurmaCadeira FOREIGN KEY(cadeira) REFERENCES Cadeira(id),
-    CONSTRAINT UQTurmaProfessor UNIQUE (professorId) 
-);*/
+);
