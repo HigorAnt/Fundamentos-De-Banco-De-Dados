@@ -26,9 +26,9 @@ INSERT INTO Turma(nome, codigo, capacidade, horario, dia, professor, cadeira) VA
 INSERT INTO Turma(nome, codigo, capacidade, horario, dia, professor, cadeira) VALUES('Turma B02', 02, 25, '15:00-17:00', 'TER-QUA', 3, 5);
 
 /*INSERÇÃO DE VALORES NA TABELA ALUNO*/
-INSERT INTO Aluno(nome, dataDeNascimento, cpf, matricula, email, cidade, curso, semestre) VALUES('Antonio Higor', '2005-05-02', '12312312344', '552581', 'higul@ufc.com', 'Ipaporanga', 1, 4);
-INSERT INTO Aluno(nome, dataDeNascimento, cpf, matricula, email, cidade, curso, semestre) VALUES('Kauan Coelho', '2003-10-05', '22255588893', '553697', 'kauan@ufc.com', 'Independência', 3, 2);
-INSERT INTO Aluno(nome, dataDeNascimento, cpf, matricula, email, cidade, curso, semestre) VALUES('Wesley Costa', '2004-06-28', '98765432100', '568123', 'wesley@ufc.com', 'Novo Oriente', 5, 5);
+INSERT INTO Aluno(nome, dataDeNascimento, cpf, matricula, email, cidade, semestre) VALUES('Antonio Higor', '2005-05-02', '12312312344', '552581', 'higul@ufc.com', 'Ipaporanga', 4);
+INSERT INTO Aluno(nome, dataDeNascimento, cpf, matricula, email, cidade, semestre) VALUES('Kauan Coelho', '2003-10-05', '22255588893', '553697', 'kauan@ufc.com', 'Independência', 2);
+INSERT INTO Aluno(nome, dataDeNascimento, cpf, matricula, email, cidade, semestre) VALUES('Wesley Costa', '2004-06-28', '98765432100', '568123', 'wesley@ufc.com', 'Novo Oriente', 5);
 
 /*INSERÇÃO DE DADOS NA TABELA CURSOCADEIRA*/
 INSERT INTO CursoCadeira(curso, cadeira) VALUES(1, 1);
@@ -40,3 +40,16 @@ INSERT INTO CursoCadeira(curso, cadeira) VALUES(2, 5);
 INSERT INTO CursoCadeira(curso, cadeira) VALUES(4, 1);
 INSERT INTO CursoCadeira(curso, cadeira) VALUES(4, 4);
 INSERT INTO CursoCadeira(curso, cadeira) VALUES(4, 5);
+
+/*INSERÇÃO DE DADOS NA TABELA ALUNOTURMA*/
+INSERT INTO AlunoTurma(aluno, turma) VALUES(1, 1);
+INSERT INTO AlunoTurma(aluno, turma) VALUES(1, 2);
+INSERT INTO AlunoTurma(aluno, turma) VALUES(1, 3);
+INSERT INTO AlunoTurma(aluno, turma) VALUES(2, 2);
+INSERT INTO AlunoTurma(aluno, turma) VALUES(3, 2);
+INSERT INTO AlunoTurma(aluno, turma) VALUES(3, 5);
+
+/*INSERÇÃO DE DADOS NA TABELA ALUNOCURSO*/
+INSERT INTO AlunoCurso(aluno, curso) VALUES(1, 1);
+INSERT INTO AlunoCurso(aluno, curso) VALUES(2, 3);
+INSERT INTO AlunoCurso(aluno, curso) VALUES(3, 5);
